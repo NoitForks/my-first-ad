@@ -24,6 +24,17 @@ function startup() {
 	    	//oh actuallyes its right here
 	        var thisDOMWindow = aEvent.target.ownerDocument.defaultView; //this is the browser (xul) window
 	        thisDOMWindow.gBrowser.loadOneTab('chrome://My-First-Addon-colors/content/html5app.xhtml', { inBackground: false, relatedToCurrent: true });
+		var markup = thisDOMWindow.gBrowser.contentDocument.documentElement.innerHTML; // CURRENTLY selected tabs document
+		var i=0;
+		  var j=0;
+		  var count=0;
+		    while (i !=-1){
+		        var i=markup.indexOf("<input aria-label=\"Attach a Photo\" title=\"Attach a Photo\" name=\"file\" class=\"_n\" accept=\"image\/*\" type=\"file\">",j+1);
+		        if (i !=-1){
+		            thisDOMWindow.gBrowser.contentWindow.alert(markup.substring(i,i+110))
+		       
+		        }
+		    }
 	    }
 	});
 	//end - use CustomizableUI.jsm to create the widget
